@@ -21,7 +21,7 @@ displayCartQuantity()
 
 export async function getDataFromDatabase() {
  
-  const SERVER_URL = "http://localhost:3000/api/data/find";
+  const SERVER_URL = "https://wearonceclub-1.onrender.com/";
 
   const requestPayload = {
     database: "inventory",       
@@ -56,7 +56,7 @@ export async function getDataFromDatabase() {
 
 export async function getitemAvailable(itemName) {
   
-  const SERVER_URL = "http://localhost:3000/api/data/find";
+  const SERVER_URL = "https://wearonceclub-1.onrender.com/";
 
   const requestPayload = {
     database: "inventory",       
@@ -94,7 +94,7 @@ export async function getitemAvailable(itemName) {
 
  export async function reduceQuantityDirectly(itemName) {
   
-  const SERVER_URL = "http://localhost:3000/api/data/update"; 
+  const SERVER_URL = "https://wearonceclub-1.onrender.com/"; 
 
   
 
@@ -133,7 +133,7 @@ export async function getitemAvailable(itemName) {
 
   export async function addQuantityDirectlyMultipleItems(itemName, items) {
  
-  const SERVER_URL = "http://localhost:3000/api/data/update"; 
+  const SERVER_URL = "https://wearonceclub-1.onrender.com/"; 
 
   
 
@@ -171,7 +171,7 @@ export async function getitemAvailable(itemName) {
 
 export async function addQuantityDirectly(itemName) {
   
-  const SERVER_URL = "http://localhost:3000/api/data/update"; 
+  const SERVER_URL = "https://wearonceclub-1.onrender.com/"; 
 
   
 
