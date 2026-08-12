@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Directions- Wear Once Club</title>
+    <link rel="icon" href="./images/favicon.png" type="image/x-icon" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+      crossorigin=""
+    />
+    <script
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+      crossorigin=""
+    ></script>
+  </head>
+  <body>
+    <div class="topLine"></div>
+
+    <header>
+      <nav>
+        <ul class="ul__header">
+          <li class="li__header"><a href="./aboutUs.html">About us</a></li>
+          <li class="li__header"><a href="./services.html">Services</a></li>
+
+          <li class="li__header"><a href="./contact.html">Contact</a></li>
+          <li class="li__header">
+            <a href="./reservation.html">Reservation</a>
+          </li>
+          <li class="li__header">
+            <a href="./cart.html">Cart</a>
+            <img
+              class="cartImg"
+              src="./images/cart.png"
+              width="25"
+              height="25"
+              alt=""
+            /><span id="cartQuantity"></span>
+          </li>
+        </ul>
+      </nav>
+
+      <section class="logos">
+        <a href="./index.html"
+          ><img
+            class="logo"
+            src="./images/logo1.png"
+            width="414"
+            height="182"
+            alt=""
+        /></a>
+      </section>
+
+      <section class="slider">
+        <img
+          class="mainImg"
+          src="./images/dress2.jpg"
+          width="1000"
+          height="372"
+          alt=""
+        />
+      </section>
+    </header>
+
+    <main>
+      <br />
+      <h3>This is how you find us</h3>
+      <section class="hero">
+        <article class="article__main1">
+          <div id="map"></div>
+        </article>
+
+        <article class="article__main2">
+          <h3>Wear Once Club</h3>
+          <p>Uhlandstr. 50 75385 Bad Teinach-Zavelstein</p>
+          <p>To make it easier for you to find us, we have prepared a map.</p>
+          <p>We look forward to your visit.</p>
+          <p>Your Wear Once Club</p>
+        </article>
+
+        <article class="article__main3">
+          <h2>Take a look at our reference images:</h2>
+          <ul class="ul__main">
+            <li class="li__main">
+              <a href="./formalDresses.html">Formal dresses</a>
+            </li>
+            <li class="li__main">
+              <a href="./sundayDresses.html">Sunday dresses</a>
+            </li>
+            <li class="li__main">
+              <a href="./weddingDresses.html">Wedding dresses</a>
+            </li>
+            <li class="li__main">
+              <a href="./bridesmaidDresses.html">Bridesmaid dresses</a>
+            </li>
+            <li class="li__main"><a href="./dryClean.html">Dry Clean</a></li>
+          </ul>
+        </article>
+      </section>
+    </main>
+
+    <footer>
+      <article>
+        <ul class="ul__footer">
+          <li class="li__footer">
+            <a href="./directions.html">Directions to us</a>
+          </li>
+          <li class="li__footer"><a href="./contact.html">Contact</a></li>
+          <li class="li__footer"><a href="./impressum.html">Impressum</a></li>
+          <li class="li__footer">
+            <a href="./privacy.html">Privacy Policy</a>
+          </li>
+        </ul>
+      </article>
+
+      <article class="article__footer">
+        <p>
+          Wear Once Club • Kristijan Drazetic <br />
+          Uhlandstr. 50 • 75385 Bad Teinach-Zavelstein <br />
+          Tel. 0 70 42 / 6 22 71 • Fax 13 06 41 <br />
+          info@wearOnceClub.de <br />
+        </p>
+
+        <section class="logos__footer">
+          <a href=""
+            ><img
+              src="./images/Fleurop-logo.png"
+              width="169"
+              height="78"
+              alt=""
+          /></a>
+          <a href=""
+            ><img src="./images/logo-geno.jpg" width="265" height="47" alt=""
+          /></a>
+        </section>
+      </article>
+    </footer>
+    <p class="ss">
+      <span class="nowrap"
+        >Copyright &copy;<time id="year"></time> Wear Once Club</span
+      >
+    </p>
+  </body>
+  <script src="./main.js" type="module"></script>
+  <script src="./directions.js"></script>
+</html>

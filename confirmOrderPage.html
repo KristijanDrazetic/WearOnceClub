@@ -1,0 +1,320 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Order Page</title>
+    <link rel="icon" href="./images/favicon.png" type="image/x-icon" />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <div class="topLine"></div>
+
+    <header>
+      <nav>
+        <ul class="ul__header">
+          <li class="li__header"><a href="./aboutUs.html">About us</a></li>
+          <li class="li__header"><a href="./services.html">Services</a></li>
+
+          <li class="li__header"><a href="./contact.html">Contact</a></li>
+          <li class="li__header">
+            <a href="./reservation.html">Reservation</a>
+          </li>
+          <li class="li__header">
+            <a href="./cart.html">Cart</a>
+            <img
+              class="cartImg"
+              src="./images/cart.png"
+              width="25"
+              height="25"
+              alt=""
+            /><span id="cartQuantity"></span>
+          </li>
+        </ul>
+      </nav>
+
+      <section class="logos">
+        <a href="./index.html"
+          ><img
+            class="logo"
+            src="./images/logo1.png"
+            width="414"
+            height="182"
+            alt=""
+        /></a>
+      </section>
+    </header>
+
+    <main>
+      <section class="hero">
+        <article class="article__main1" id="orderForm">
+          <div class="form__container">
+            <form
+              action="https://formspree.io/f/xaqvelpj" 
+              id="https://formspree.io/f/xaqvelpj"
+              class="fs-form fs-layout__2-column"
+              target="_top"
+              method="POST"
+            >
+              
+                <legend class="fs-fieldset-title">Fill out & Order</legend>
+                <div class="fs-field">
+                  <label class="fs-label" for="full-name">Full Name</label>
+                  <input
+                  type="text"
+                    class="fs-input"
+                    id="full-name"
+                    name="full-name"
+                    placeholder="Enter your full name"
+                    required
+                  />
+                </div>
+                <div class="fs-field">
+                  <label class="fs-label" for="email-address"
+                    >Email Address</label
+                  >
+                  <input
+                  type="email"
+                    class="fs-input"
+                    id="email-address"
+                    name="email-address"
+                    placeholder="Enter your email address"
+                    required
+                  />
+                </div>
+                <div class="fs-field">
+                  <label class="fs-label" for="phone-number"
+                    >Phone Number</label
+                  >
+                  <input
+                  type="number"
+                    class="fs-input"
+                    id="phone-number"
+                    name="phone-number"
+                    placeholder="Enter your phone number"
+                    required
+                  />
+                </div>
+                <div class="fs-field">
+                  <label class="fs-label" for="company-name"
+                    >Company Name</label
+                  >
+                  <input
+                  type="text"
+                    class="fs-input"
+                    id="company-name"
+                    name="company-name"
+                    placeholder="Enter your company name (optional)"
+                  />
+                </div>
+               
+              
+              
+              
+                <div class="fs-field col-span-full">
+                  <label class="fs-label" for="street-address"
+                    >Street Address</label
+                  >
+                  <input
+                  type="text"
+                    class="fs-input"
+                    id="street-address"
+                    name="street-address"
+                    placeholder="Enter your street address"
+                    required
+                  />
+                </div>
+                <div class="fs-field">
+                  <label class="fs-label" for="city">City</label>
+                  <input
+                  type="text"
+                    class="fs-input"
+                    id="city"
+                    name="city"
+                    placeholder="Enter your city"
+                    required
+                  />
+                </div>
+
+                <div class="fs-field">
+                  <label class="fs-label" for="postal-zip-code"
+                    >Postal/ZIP Code</label
+                  >
+                  <input
+                  type="number"
+                    class="fs-input"
+                    id="postal-zip-code"
+                    name="postal-zip-code"
+                    placeholder="Enter your postal/ZIP code"
+                    required
+                  />
+                </div>
+                <div class="fs-field">
+                  <label class="fs-label" for="country">Country</label>
+                  <select
+                    class="fs-select"
+                    id="country"
+                    name="country"
+                    required
+                  >
+                    <option value="Germany">Germany</option>
+                    <option value="Austria">Austria</option>
+                    <option value="Switzerland">Switzerland</option>
+                    <option value="Other">Other</option>
+                  </select>
+                </div>
+              
+              
+                
+                <div class="fs-field">
+                  <label class="fs-label" for="product-name">Products</label>
+                  <textarea
+                    readonly
+                    class="fs-textarea"
+                    id="products"
+                    name="products-orderd"
+                  ></textarea>
+                </div>
+                <div class="fs-field">
+                  <label class="fs-label" for="quantity"
+                  
+                    >Total Sum to Pay</label
+                  >
+                  <textarea
+                    readonly
+                    class="fs-textarea"
+                    id="sumToPay"
+                    name="order-sum"
+                  ></textarea>
+                </div>
+                <div class="fs-field col-span-full">
+                  <label class="fs-label" for="additional-notes">
+                    Additional Notes/Instructions
+                  </label>
+                  <textarea
+                    class="fs-textarea"
+                    id="additional-notes"
+                    name="additional-notes"
+                    placeholder="Enter any customization or specific requests (optional)"
+                  ></textarea>
+                </div>
+              
+              
+                
+                <div class="fs-field">
+                  <label class="fs-label" for="payment-method"
+                    >Payment Method</label
+                  >
+                  <select
+                    class="fs-select"
+                    id="payment-method"
+                    name="payment-method"
+                    required
+                  >
+                    <option value="bank-transfer">Bank Transfer</option>
+                    <option value="cash-on-delivery">
+                      Payment by Cash on Delivery
+                    </option>
+                  </select>
+                </div>
+             
+             <br>
+                <div class="fs-checkbox-field">
+                  <div class="fs-checkbox-wrapper">
+                    <input
+                      class="fs-checkbox"
+                      id="terms-agreement"
+                      name="terms-agreement"
+                      required
+                      type="checkbox"
+                      value="agree"
+                    />
+                  </div>
+                  <div>
+                    <label class="fs-label" for="terms-agreement">
+                      Agree to Terms and Conditions
+                    </label>
+                  </div>
+                </div>
+              
+             
+              </div>
+              <div class="fs-button-group">
+                <button class="fs-button" id="confirmOrderBtn" type="submit">Confirm Order</button>
+              </div>
+            </form>
+          </div>
+        </article>
+
+        
+
+        <article class="article__main3">
+          <h2>Take a look at our reference images:</h2>
+          <ul class="ul__main">
+            <li class="li__main">
+              <a href="./formalDresses.html">Formal dresses</a>
+            </li>
+            <li class="li__main">
+              <a href="./sundayDresses.html">Sunday dresses</a>
+            </li>
+            <li class="li__main">
+              <a href="./weddingDresses.html">Wedding dresses</a>
+            </li>
+            <li class="li__main">
+              <a href="./bridesmaidDresses.html">Bridesmaid dresses</a>
+            </li>
+            <li class="li__main"><a href="./dryClean.html">Dry Clean</a></li>
+          </ul>
+        </article>
+      </section>
+    </main>
+    <br />
+    <br />
+    <div class="order___sum"></div>
+    <footer>
+      <article>
+        <ul class="ul__footer">
+          <li class="li__footer">
+            <a href="./directions.html">Directions to us</a>
+          </li>
+          <li class="li__footer"><a href="./contact.html">Contact</a></li>
+          <li class="li__footer"><a href="./impressum.html">Impressum</a></li>
+          <li class="li__footer">
+            <a href="./privacy.html">Privacy Policy</a>
+          </li>
+        </ul>
+      </article>
+
+      <article class="article__footer">
+        <p>
+          Wear Once Club • Kristijan Drazetic <br />
+          Uhlandstr. 50 • 75385 Bad Teinach-Zavelstein <br />
+          Tel. 0 70 42 / 6 22 71 • Fax 13 06 41 <br />
+          info@wearOnceClub.de <br />
+        </p>
+
+        <section class="logos__footer">
+          <a href=""
+            ><img
+              src="./images/Fleurop-logo.png"
+              width="169"
+              height="78"
+              alt=""
+          /></a>
+          <a href=""
+            ><img src="./images/logo-geno.jpg" width="265" height="47" alt=""
+          /></a>
+        </section>
+      </article>
+    </footer>
+    <p class="ss">
+      <span class="nowrap"
+        >Copyright &copy;<time id="year"></time> Wear Once Club</span
+      >
+    </p>
+  </body>
+  <script src="./orderPage.js" type="module"></script>
+  <script src="./main.js" type="module"></script>
+  
+</html>
