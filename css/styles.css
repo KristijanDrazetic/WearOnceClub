@@ -8,21 +8,21 @@
 
 html {
     background: linear-gradient(
-        to bottom,
-        rgb(212, 212, 212) 0%,
-        yergb(212, 212, 212)llow 1%,
-        papayawhip 1%,
-        papayawhip 10.5%,
-        rgb(212, 212, 212) 10.5%,
-        rgb(212, 212, 212) 42%,
-        papayawhip 42%,
-        papayawhip 84.66%,
-        #357E3E 84.85%,
-        #357E3E 100%);
-        
-    
+    to bottom,
+    rgb(212, 212, 212) 0%,
+    yergb(212, 212, 212)llow 1%,
+    papayawhip 1%,
+    papayawhip 10.5%,
+    rgb(212, 212, 212) 10.5%,
+    rgb(212, 212, 212) 42%,
+    papayawhip 42%,
+    papayawhip 84.66%,
+     #357E3E 84.85%,
+     #357E3E 100%);
     font-size: 1rem;
     font-family: "Tahoma", Sans-serif;
+    scroll-behavior: smooth;
+    position: relative;
 }
 
 body {
