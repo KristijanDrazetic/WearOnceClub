@@ -554,7 +554,8 @@ color: white;
       bottom: 42%;
       right: 7%;
       width: 10px;
-      pointer-events: none;  
+      pointer-events: none;
+      display: block;
     }
 
     .back__to__top__container {
