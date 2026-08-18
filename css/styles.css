@@ -522,6 +522,54 @@ color: white;
 }
 
 @media screen and (max-width:520px) {
+
+    .back__to__top__trigger {
+      position: absolute;
+      top: 120vh;             
+      bottom: 42%;
+      right: 7%;
+      width: 10px;
+      pointer-events: none;  
+    }
+
+    .back__to__top__container {
+      position: absolute;
+      top: 50vh;            
+      bottom: 0;             
+      right: 20px;           
+      width: 50px;
+      pointer-events: none;  
+      z-index: 9999;
+    }
+
+
+    .back__to__top__btn {
+      position: sticky;
+      top: calc(100vh - 70px); 
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 30px;
+      height: 30px;
+      background-color: rgb(77, 129, 77);
+      color: white;
+      text-decoration: none;
+      border-radius: 50px;     
+      font-size: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      pointer-events: auto;    
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+
+    .back__to__top__btn:hover {
+      background-color: green;
+      transform: scale(1.1);   
+    }
+
+
+
+    
     .ul__header, .ul__footer{
         display: grid;
         height: auto;
