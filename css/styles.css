@@ -299,6 +299,24 @@ background-color: green;
 scale: 1.1;
 }
 
+#addBtnReservation {
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+
+@media (hover: hover) {
+  #addBtnReservation:hover { 
+    background-color: green; 
+    transform: scale(1.1); 
+  }
+}
+
+
+#addBtnReservation:active {
+  background-color: darkgreen; 
+  transform: scale(0.95);     
+}
+
 
 
 
