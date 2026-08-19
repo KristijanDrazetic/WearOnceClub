@@ -44,7 +44,7 @@ No more product available in stock!</span></div>
            <div class="product__price"  hidden> In Stock: ${dress.Available}</div>
            
            `
-          productsHTML = productsHTML +=`<div class ="add__product" id = "pp"><button class="removeBtn" type="button">Remove from Cart</button></div><br></div>
+          productsHTML = productsHTML +=`<div class ="add__product" id = "pp"><img class="removeBtn" src="./images/trash.png" width="25" height="25" alt="" /></div><br></div>
   `
   
     })
