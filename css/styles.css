@@ -241,7 +241,14 @@ width:1000px;
 
 
 
-
+.product__amount{
+    border: solid 3px rgb(194, 194, 19);
+    border-radius: 5px;
+    padding: 5px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    width: fit-content;
+}
 
 
 
@@ -294,34 +301,34 @@ border-radius: 5px;
 margin-top: 10px;
 }
 
-#addBtnReservation:hover{
-background-color: green;
-scale: 1.1;
+#addBtnReservation:hover, #checkoutBtn{
+background-color: rgb(77, 129, 77);
+scale: 1;
 }
 
-#addBtnReservation {
+#addBtnReservation, #checkoutBtn {
   transition: transform 0.2s ease, background-color 0.2s ease;
 }
 
 
 @media (hover: hover) {
-  #addBtnReservation:hover { 
-    background-color: green; 
+  #addBtnReservation:hover, #checkoutBtn:hover { 
+    background-color: darkgreen; 
     transform: scale(1.1); 
   }
 }
 
 
-#addBtnReservation:active {
+#addBtnReservation:active, #checkoutBtn:active {
   background-color: darkgreen; 
-  transform: scale(0.95);     
+  transform: scale(0.95);      
 }
 
 
 
 
 #confirmOrderBtn{
-    background-color: #007bff;
+    background-color:  rgb(77, 129, 77);
   color: #fff;
   padding: 10px 20px;
   border: none;
@@ -331,20 +338,32 @@ scale: 1.1;
 }
 
 #confirmOrderBtn:hover {
-  background-color: #0056b3;
+  background-color: darkgreen;
 }
 
 
 
 
 #checkoutBtn{
-background-color: green;
+background-color: rgb(77, 129, 77);
 
 padding: 1px;
 border: solid green 1px;
 border-radius: 5px;
 margin-top: 10px;
+font-size: 16px;
+margin-left: 5px;
 }
+
+#plusBtn, #minusBtn{
+    font-weight: bold;
+    font-size: 1rem;
+    
+}
+
+ .removeBtn{
+    cursor: pointer;
+ }
 
 #checkoutBtn > a{
     color: white;
@@ -443,7 +462,9 @@ margin-top: 10px;
     color: black;
     
 }
-
+.order___sum{
+    margin-left: 5px
+}
   
 
 /* FOOTER */
