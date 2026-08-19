@@ -526,7 +526,12 @@ color: white;
    bottom: 0;
 }
 
-
+  .img__a2{
+   
+  height: 160px;
+     width: 140px;
+  
+}
 
 @media screen and (max-width:770px) {
     .article__footer, .logos__footer {
