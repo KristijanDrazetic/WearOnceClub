@@ -526,12 +526,7 @@ color: white;
    bottom: 0;
 }
 
-  .img__a2{
-   
-  height: 160px;
-     width: 140px;
-  
-}
+ 
 
 @media screen and (max-width:770px) {
     .article__footer, .logos__footer {
@@ -783,10 +778,10 @@ color: white;
  */
 
 
-     .img__a2{
+      .img__a2{
    
-  height: 100px;
-     width: 80px;
+  height: 160px;
+     width: 140px;
   
 }
 
