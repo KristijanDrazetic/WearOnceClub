@@ -10,7 +10,7 @@ app.use(cors());
 app.use(express.json());
 
 const PORT = process.env.PORT || 3000;
-const uri = process.env.MONGODB_URI;
+const uri = "mongodb+srv://kristijan118_db_user:sisak345@cluster0.mu3zs9v.mongodb.net/inventory"
 
 // 1. Create a single database client instance
 const client = new MongoClient(uri);
