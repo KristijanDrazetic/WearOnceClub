@@ -70,7 +70,6 @@ app.post('/api/data/update-by-name', async (req, res) => {
   }
 });
 
-
 app.post('/api/data/update', async (req, res) => {
   const { database, collection, filter, update } = req.body;
 
@@ -78,20 +77,26 @@ app.post('/api/data/update', async (req, res) => {
     const db = client.db(database);
     const col = db.collection(collection);
 
-    // Updates the item and returns the updated document instantly
+    // Izvodi atomsko ažuriranje
     const result = await col.findOneAndUpdate(
       filter, 
       update, 
       { returnDocument: 'after' } 
     );
 
-    if (!result) {
-      return res.status(404).json({ success: false, error: "Item not found" });
+    
+    const actualDocument = result && result.value ? result.value : result;
+
+    if (!actualDocument || (result && result.value === null)) {
+      return res.status(404).json({ 
+        success: false, 
+        error: "Item not found or out of stock" 
+      });
     }
 
     res.status(200).json({
       success: true,
-      document: result
+      document: actualDocument
     });
   } catch (error) {
     res.status(500).json({ success: false, error: error.message });
