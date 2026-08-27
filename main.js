@@ -127,17 +127,15 @@ export async function getitemPrice(itemName) {
 
 
 export async function reduceQuantityDirectly(itemName) {
-  
   const SERVER_URL = "https://wearonceclub-1.onrender.com/api/data/update"; 
-
-  
 
   const requestPayload = {
     database: "inventory",       
     collection: "dresses",    
-    filter: { Name: itemName,
+    filter: { 
+      Name: itemName,
       Available: { $gte: 1 } 
-     },
+    },
     update: {
       $inc: { Available: -1 } 
     }
@@ -150,15 +148,22 @@ export async function reduceQuantityDirectly(itemName) {
       body: JSON.stringify(requestPayload)
     });
 
+    
+    if (!response.ok) {
+      console.warn("Product not available.");
+      return null; 
+    }
+
     const result = await response.json();
    
     if (result.success) {
-      const item = result.document || (result.documents && result.documents[0]);
-      
-      return item;
+      return result.document; // Vraća ažurirani dokument uspješno
     }
+    
+    return null;
   } catch (error) {
     console.error("Error modifying quantity:", error);
+    return null;
   }
 }
 
