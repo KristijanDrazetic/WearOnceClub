@@ -92,7 +92,7 @@ export async function getitemAvailable(itemName) {
 
 export async function getitemPrice(itemName) {
   
-  const SERVER_URL = "http://localhost:3000/api/data/find";
+  const SERVER_URL = "https://wearonceclub-1.onrender.com/api/data/find";
 
   const requestPayload = {
     database: "inventory",       
