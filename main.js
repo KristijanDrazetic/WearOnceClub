@@ -244,7 +244,7 @@ export async function addQuantityDirectly(itemName) {
   return result.price
 }
 
-
+console.log(localStorage)
 
 
 
