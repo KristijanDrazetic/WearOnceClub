@@ -90,6 +90,41 @@ export async function getitemAvailable(itemName) {
 }
 
 
+export async function getitemPrice(itemName) {
+  
+  const SERVER_URL = "http://localhost:3000/api/data/find";
+
+  const requestPayload = {
+    database: "inventory",       
+    collection: "dresses",   
+    filter: { Name: itemName,
+      Price: { $gte: 0 }}                 
+  };
+
+  try {
+    const response = await fetch(SERVER_URL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(requestPayload)
+    });
+
+    const result = await response.json();
+    
+    if (result.success) {
+    
+      console.log(result.documents[0].Price)
+      return result.documents[0].Price
+      
+    } else {
+      console.error("Backend error:", result.error);
+    }
+  } catch (networkError) {
+    console.error("Could not reach backend server:", networkError);
+  }
+}
+
 
 
  export async function reduceQuantityDirectly(itemName) {
@@ -168,6 +203,8 @@ export async function getitemAvailable(itemName) {
   }
   return result.price
 }
+
+
 
 export async function addQuantityDirectly(itemName) {
   
