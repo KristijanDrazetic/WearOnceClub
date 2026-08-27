@@ -84,6 +84,14 @@ if (sortDresses) {
    sortDresses.addEventListener("change", sortFunction);
 }
 
+function preventDoubleClicks(){
+
+  const now = Date.now();
+      if (now - lastClick < 200) return true; 
+      lastClick = now;
+
+}
+
 
 function dressAvailabilityDisplay(dressAvailable, btn){
 
@@ -176,6 +184,11 @@ export function addToCart(){
   btn.addEventListener("click" ,async function(event){
 
       let buttonClicked = btn
+
+    if (preventDoubleClicks()) {
+        
+        return; 
+      }
 
   let dressAvailabilityDatabase = await getitemAvailable(`${btn.title}`)
   let dressPriceDatabase = await getitemPrice(`${btn.title}`)
