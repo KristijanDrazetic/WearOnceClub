@@ -156,7 +156,7 @@ function displaySumInCart(){
 function addSumToCart(dressPrice){
 
   let cartSum = localStorage.getItem("cartSum")
-  localStorage.setItem("cartSum", +cartSum + dressPrice)
+  localStorage.setItem("cartSum", Number(cartSum) + dressPrice)
   displaySumInCart()
  
 }
@@ -241,7 +241,7 @@ export function addToCart(){
 function subtractSumFromCart(dressPrice, quantity){
 
   let cartSum = localStorage.getItem("cartSum")
-  localStorage.setItem("cartSum", +cartSum - dressPrice * quantity)
+  localStorage.setItem("cartSum", Number(cartSum) - dressPrice * quantity)
   displaySumInCart()
  
 }
