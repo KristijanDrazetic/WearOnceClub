@@ -3,6 +3,7 @@ import { reduceQuantityDirectly } from './main.js';
 import {addQuantityDirectly} from './main.js'
 import {addQuantityDirectlyMultipleItems} from './main.js'
 import {getitemAvailable} from './main.js'
+import { getitemPrice } from './main.js';
 export let dressesDataBase = await getDataFromDatabase()
 let dresses = dressesDataBase.sort((a, b) => a.Name.localeCompare(b.Name))
 let productsHTML = ""
