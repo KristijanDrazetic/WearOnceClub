@@ -185,10 +185,10 @@ export function addToCart(){
 
       let buttonClicked = btn
 
-      if (preventDoubleClicks()) {
+     /*  if (preventDoubleClicks()) {
         
         return; 
-      }
+      } */
 
   let dressAvailabilityDatabase = await getitemAvailable(`${btn.title}`)
   let dressPriceDatabase = await getitemPrice(`${btn.title}`)
