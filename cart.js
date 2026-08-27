@@ -38,13 +38,13 @@ for(let i = 0; i < JSON.parse(localStorage.getItem("itemsInCart")).length; i++){
           <div class="product__color">Color: ${dress.Color}</div>
           <div class="product__size">Size: ${dress.Size}</div>
            <div class="product__price">Renting Price: ${dress.Price},00$</div>
-           <div class="product__amount" >Amount: <button class="removeItemInCartBtn" id="minusBtn" type="button">-</button> <span id = "productAmountInCartDisplay"> ${result.length}</span> <button class="addBtn" id= "plusBtn" type="button">+</button><span id = "available" class = "available" hidden>
+           <div class="product__amount" >Amount: <button class="removeItemInCartBtn" id="minusBtn" type="button" title = "${dress.Name}">-</button> <span id = "productAmountInCartDisplay"> ${result.length}</span> <button class="addBtn" id= "plusBtn" type="button" title = "${dress.Name}">+</button><span id = "available" class = "available" hidden>
 No more product available in stock!</span></div>
            <div class="product__price" hidden> ${dress.value}</div>
            <div class="product__price"  hidden> In Stock: ${dress.Available}</div>
            
            `
-          productsHTML = productsHTML +=`<div class ="add__product" id = "pp"><img class="removeBtn" src="./images/trash.png" width="25" height="25" alt="" /></div><br></div>
+          productsHTML = productsHTML +=`<div class ="add__product" id = "pp"><img class="removeBtn" title = "${dress.Name}" src="./images/trash.png" width="25" height="25" alt="" /></div><br></div>
   `
   
     })
