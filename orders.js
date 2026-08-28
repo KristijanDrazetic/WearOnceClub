@@ -87,7 +87,7 @@ if (sortDresses) {
 function preventDoubleClicks(){
 
   const now = Date.now();
-      if (now - lastClick < 200) return true; 
+      if (now - lastClick < 500) return true; 
       lastClick = now;
 
 }
