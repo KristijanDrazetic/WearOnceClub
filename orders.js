@@ -351,32 +351,32 @@ let isAtLeastOneDressInCart = cartItems.some(item => item.Name === `${btn.title}
 async function fetchDresses() {
     let heroElement = document.querySelector(".hero");
 
-    // 1. Odmah prikazujemo loader poslodavcu
+    
     if (heroElement) {
         heroElement.innerHTML = `
             <div id="render-loading-status" class="loading-box">
                 <div class="spinner"></div>
-                <p class="loading-title">Lade Produkte...</p>
+                <p class="loading-title">Loading Products...</p>
                 <p class="loading-notice">
-                    Hinweis: Aufgrund des kostenlosen Render-Hostings kann der erste Start des Servers 
-                    <strong>ca. 30–40 Sekunden</strong> dauern. Vielen Dank für Ihre Geduld!
+                   Note: Due to the free Render hosting, the initial server startup may take 
+                    <strong>approx. 30–40 seconds</strong>. Thank you for your patience!
                 </p>
             </div>
         `;
     }
 
     try {
-        // 2. Pozivamo vašu funkciju za dohvaćanje podataka iz baze
-        const podaci = await getDataFromDatabase(); 
+       
+        const data = await getDataFromDatabase(); 
         
-        if (podaci && podaci.length > 0) {
-            // 3. Napunimo naš izvozni niz dressesDataBase
-            dressesDataBase.push(...podaci); 
+        if (data && data.length > 0) {
             
-            // 4. Sada sortiramo podatke u varijablu 'dresses' koja je bila prazna na početku!
+            dressesDataBase.push(...data); 
+            
+            
             dresses = dressesDataBase.sort((a, b) => a.Name.localeCompare(b.Name));
 
-            // 5. Pokrećemo prikaz proizvoda
+          
             displayProducts();
         }
 
@@ -386,9 +386,10 @@ async function fetchDresses() {
         let loadingElement = document.getElementById('render-loading-status');
         if (loadingElement) {
             loadingElement.innerHTML = `
-                <p style="color: #e74c3c; font-weight: bold; font-size: 1.1rem;">Verbindung zum Server dauert zu lange...</p>
-                <p style="font-size: 0.9rem; color: #555;">Das Render Free-Tier benötigt aktuell mehr Zeit zum Aufwachen. 
-                Bitte laden Sie die Seite in wenigen Sekunden neu (F5).</p>
+                <p style="color: #e74c3c; font-weight: bold; font-size: 1.1rem;">
+Connecting to the server is taking too long......</p>
+                <p style="font-size: 0.9rem; color: #555;">The Render free tier currently takes longer to wake up.
+                Please reload the page in a few seconds. (F5).</p>
             `;
         }
     }
