@@ -15,7 +15,19 @@ let lastClick = 0;
 
 function displayProducts(){
 
-  let productsHTML = ""
+  let productsHTML = `<div id="products-container">
+    
+    <!-- PORUKA O UČITAVANJU (Prikazuje se odmah pri otvaranju stranice) -->
+    <div id="render-loading-status" class="loading-box">
+        <div class="spinner"></div>
+        <p class="loading-title">Lade Produkte...</p>
+        <p class="loading-notice">
+            Hinweis: Aufgrund des kostenlosen Render-Hostings kann der erste Start des Servers 
+            <strong>ca. 30–40 Sekunden</strong> dauern. Vielen Dank für Ihre Geduld!
+        </p>
+    </div>
+
+</div>`
 
   dressesDataBase.forEach((dress) => {
 
@@ -45,6 +57,11 @@ function displayProducts(){
 
   if(heroElement){
   document.querySelector(".hero").innerHTML = productsHTML
+
+    let loadingBox = document.getElementById('render-loading-status');
+    if (loadingBox) {
+        loadingBox.style.display = 'none';
+    } 
   }
 }
 
@@ -344,9 +361,61 @@ let isAtLeastOneDressInCart = cartItems.some(item => item.Name === `${btn.title}
 
 }
 
+async function fetchDresses() {
+    let heroElement = document.querySelector(".hero");
+
+    
+    if (heroElement) {
+        heroElement.innerHTML = `
+            <div id="render-loading-status" class="loading-box">
+                <div class="spinner"></div>
+                <p class="loading-title">Lade Produkte...</p>
+                <p class="loading-notice">
+                    Hinweis: Aufgrund des kostenlosen Render-Hostings kann der erste Start des Servers 
+                    <strong>ca. 30–40 Sekunden</strong> dauern. Vielen Dank für Ihre Geduld!
+                </p>
+            </div>
+        `;
+    }
+
+    const loadingElement = document.getElementById('render-loading-status');
+
+    try {
+        
+        const response = await fetch('https://wearonceclub-1.onrender.com');
+        
+        if (!response.ok) {
+            throw new Error('Netzwerkantwort war nicht ok');
+        }
+
+      
+        dressesDataBase = await response.json();
+        
+       
+        displayProducts();
+
+    } catch (error) {
+        console.error('Fehler beim Laden der Daten:', error);
+        
+        if (loadingElement) {
+            loadingElement.innerHTML = `
+                <p style="color: #e74c3c; font-weight: bold; font-size: 1.1rem;">Verbindung zum Server dauert zu lange...</p>
+                <p style="font-size: 0.9rem; color: #555;">Das Render Free-Tier benötigt aktuell mehr Zeit zum Aufwachen. 
+                Bitte laden Sie die Seite in wenigen Sekunden neu (F5).</p>
+            `;
+        }
+    } finally {
+      
+        if (loadingElement && dressesDataBase && dressesDataBase.length > 0) {
+            loadingElement.style.display = 'none';
+        }
+    }
+} 
+
+ document.addEventListener('DOMContentLoaded', fetchDresses);
 
 
-displayProducts()
+/* displayProducts() */
 
 addToCart()
 
