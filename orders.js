@@ -182,7 +182,7 @@ updateCartIconQuantity()
 
 
 
-export function addToCart(){
+/* export function addToCart(){
 
  document.querySelectorAll(".addBtn").forEach(function(btn){
 
@@ -239,6 +239,45 @@ export function addToCart(){
     
 })
   
+} */
+
+
+
+export async function addToCart(btn) {
+  let buttonClicked = btn;
+
+  /* if (preventDoubleClicks()) {
+    return; 
+  } */
+
+  let dressAvailabilityDatabase = await getitemAvailable(`${btn.title}`);
+  let dressPriceDatabase = await getitemPrice(`${btn.title}`);
+  let dressesDataBase = await getDataFromDatabase();
+  let obj = dressesDataBase.find(o => o.Name === `${btn.title}`);
+
+  if (dressAvailabilityDatabase === 0) {
+     dressAvailabilityDisplay(1, buttonClicked);
+     updateCartIconQuantity();
+     numberDisplayItemsInCart(buttonClicked);
+     displaySumInCart();
+     dressOutOfStockReservation(buttonClicked);
+     dressOutOfStockCart(buttonClicked);
+     return;
+  } 
+
+  if (localStorage.getItem("itemsInCart") === null) {
+    localStorage.setItem("itemsInCart", JSON.stringify([obj]));
+  } else {
+    let itemsFromCartStorage = JSON.parse(localStorage.getItem("itemsInCart"));
+    let items = [...itemsFromCartStorage, obj];
+    localStorage.setItem("itemsInCart", JSON.stringify(items));
+  }
+
+  addSumToCart(dressPriceDatabase);
+  reduceQuantityDirectly(btn.title);
+  dressAvailabilityDisplay(dressAvailabilityDatabase, buttonClicked);
+  updateCartIconQuantity();
+  numberDisplayItemsInCart(buttonClicked);
 }
 
 
@@ -401,6 +440,20 @@ document.addEventListener('DOMContentLoaded', fetchDresses);
 
 /* displayProducts() */
 
-addToCart()
+/* addToCart() */
+
+let heroElement = document.querySelector(".hero");
+
+if (heroElement) {
+    heroElement.addEventListener("click", function(event) {
+        // Provjeravamo je li kliknuti element zapravo naš gumb s klasom .addBtn
+        if (event.target && event.target.classList.contains("addBtn")) {
+            
+            // Pokrećemo vašu funkciju i prosljeđujemo joj točan gumb koji je kliknut
+            addToCart(event.target);
+            
+        }
+    });
+}
 
 
