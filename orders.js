@@ -50,6 +50,8 @@ function displayProducts(){
     if (loadingBox) {
         loadingBox.style.display = 'none';
     } 
+
+    addToCart();
   }
 }
 
@@ -182,7 +184,7 @@ updateCartIconQuantity()
 
 
 
-/* export function addToCart(){
+export function addToCart(){
 
  document.querySelectorAll(".addBtn").forEach(function(btn){
 
@@ -239,56 +241,11 @@ updateCartIconQuantity()
     
 })
   
-} */
-
-
-
-export async function addToCart(btn) {
-  let buttonClicked = btn;
-
-  /* if (preventDoubleClicks()) {
-    return; 
-  } */
-
-  let dressAvailabilityDatabase = await getitemAvailable(`${btn.title}`);
-  let dressPriceDatabase = await getitemPrice(`${btn.title}`);
-  let dressesDataBase = await getDataFromDatabase();
-  let obj = dressesDataBase.find(o => o.Name === `${btn.title}`);
-
-  if (dressAvailabilityDatabase === 0) {
-     dressAvailabilityDisplay(1, buttonClicked);
-     updateCartIconQuantity();
-     numberDisplayItemsInCart(buttonClicked);
-     displaySumInCart();
-     dressOutOfStockReservation(buttonClicked);
-     dressOutOfStockCart(buttonClicked);
-     return;
-  } 
-
-  if (localStorage.getItem("itemsInCart") === null) {
-    localStorage.setItem("itemsInCart", JSON.stringify([obj]));
-  } else {
-    let itemsFromCartStorage = JSON.parse(localStorage.getItem("itemsInCart"));
-    let items = [...itemsFromCartStorage, obj];
-    localStorage.setItem("itemsInCart", JSON.stringify(items));
-  }
-
-  addSumToCart(dressPriceDatabase);
-  reduceQuantityDirectly(btn.title);
-  dressAvailabilityDisplay(dressAvailabilityDatabase, buttonClicked);
-  updateCartIconQuantity();
-  numberDisplayItemsInCart(buttonClicked);
 }
 
 
 
-function subtractSumFromCart(dressPrice, quantity){
 
-  let cartSum = localStorage.getItem("cartSum")
-  localStorage.setItem("cartSum", Number(cartSum) - dressPrice * quantity)
-  displaySumInCart()
- 
-}
 
 
 
@@ -442,43 +399,6 @@ document.addEventListener('DOMContentLoaded', fetchDresses);
 
 /* addToCart() */
 
-let heroElement = document.querySelector(".hero");
 
-if (heroElement) {
-    console.log("Slušač klikova je uspješno povezan na element .hero");
-
-    heroElement.addEventListener("click", async function(event) {
-        
-        // Provjeravamo je li kliknuti element gumb za košaricu
-        if (event.target && event.target.classList.contains("addBtn")) {
-            
-            console.log("Gumb 'Add to Cart' je prepoznat! Pokrećem logiku za:", event.target.title);
-            
-            // Onemogućujemo gumb privremeno da korisnik ne klika bjesomučno dok se čeka baza
-            event.target.disabled = true;
-            let originalText = event.target.innerText;
-            event.target.innerText = "Warten...";
-
-            try {
-                // Pokrećemo vašu funkciju i čekamo da ona završi svoje asinkrone zadatke
-                await addToCart(event.target);
-                console.log("Vaša funkcija addToCart() je uspješno završila izvršavanje!");
-
-            } catch (error) {
-                console.error("Došlo je do pogreške unutar addToCart funkcije:", error);
-                alert("Fehler beim Verbinden mit dem Server. Bitte versuchen Sie es erneut.");
-            } finally {
-                // Vraćamo gumb u prvobitno stanje nakon što obrada završi
-                if (event.target) {
-                    event.target.disabled = false;
-                    event.target.innerText = originalText;
-                }
-            }
-            
-        }
-    });
-} else {
-    console.error("Kritična pogreška: Element .hero nije pronađen u HTML-u u trenutku pokretanja ove skripte!");
-}
 
 
