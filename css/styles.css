@@ -424,7 +424,7 @@ margin-left: 5px;
     max-width: 500px;
     margin: 40px auto;
     font-family: Tahoma, sans-serif;
-    grid-row: 3 / 4;
+      grid-column: 3 / 4; 
 }
 
 .loading-title {
@@ -441,7 +441,7 @@ margin-left: 5px;
     line-height: 1.4;
 }
 
-/* Animirani krug (Spinner) */
+
 .spinner {
     display: inline-block;
     width: 40px;
