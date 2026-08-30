@@ -311,7 +311,7 @@ export function removeFromCart(){
     let firstDressOccurance = cartItems.findIndex(item => item.Name === dressToRemove);
 
 
-    console.log(+localStorage.getItem("cartSum"))
+    
 
       if(+localStorage.getItem("cartSum") === 0){
          ifEmptyCart()
@@ -402,9 +402,7 @@ Connecting to the server is taking too long......</p>
 }
 document.addEventListener('DOMContentLoaded', fetchDresses);
 
-/* displayProducts() */
 
-/* addToCart() */
 
 
 
