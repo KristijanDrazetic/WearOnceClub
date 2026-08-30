@@ -245,7 +245,7 @@ export function addToCart(){
 
 
 
-function subtractSumFromCart(dressPrice, quantity){
+export function subtractSumFromCart(dressPrice, quantity){
 
   let cartSum = localStorage.getItem("cartSum")
   localStorage.setItem("cartSum", +cartSum - dressPrice * quantity)
@@ -255,7 +255,7 @@ function subtractSumFromCart(dressPrice, quantity){
 
 
 
-function ifEmptyCart(){
+export function ifEmptyCart(){
 
 
     if(localStorage.getItem("cartSum") === null || +localStorage.getItem("cartSum") === 0){
