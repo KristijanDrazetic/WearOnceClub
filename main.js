@@ -114,7 +114,7 @@ export async function getitemPrice(itemName) {
     
     if (result.success) {
     
-      console.log(result.documents[0].Price)
+     
       return result.documents[0].Price
       
     } else {
