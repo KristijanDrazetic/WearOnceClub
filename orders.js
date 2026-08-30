@@ -5,7 +5,7 @@ import {addQuantityDirectlyMultipleItems} from './main.js'
 import {getitemAvailable} from './main.js'
 import { getitemPrice } from './main.js';
 export let dressesDataBase = []
-/* let dresses = dressesDataBase.sort((a, b) => a.Name.localeCompare(b.Name)) */
+let dresses = []
 let productsHTML = ""
 let orderSum = localStorage.getItem("cartSum")
 let cartQuantityDisplay = document.getElementById("cartQuantity")
@@ -57,7 +57,7 @@ function displayProducts(){
 
 
 
-/* function sortFunction() {
+function sortFunction() {
   
   let x = sortDresses.value;
 
@@ -87,7 +87,7 @@ function displayProducts(){
 
 if (sortDresses) {
    sortDresses.addEventListener("change", sortFunction);
-} */
+}
 
 function preventDoubleClicks(){
 
@@ -355,7 +355,7 @@ let isAtLeastOneDressInCart = cartItems.some(item => item.Name === `${btn.title}
 async function fetchDresses() {
     let heroElement = document.querySelector(".hero");
 
-    
+    // 1. Odmah prikazujemo loader poslodavcu
     if (heroElement) {
         heroElement.innerHTML = `
             <div id="render-loading-status" class="loading-box">
@@ -370,19 +370,23 @@ async function fetchDresses() {
     }
 
     try {
+        // 2. Pozivamo vašu funkciju za dohvaćanje podataka iz baze
+        const podaci = await getDataFromDatabase(); 
         
-        const podaci = await getDataFromDatabase();
-        
-       
-        dressesDataBase = podaci;
+        if (podaci && podaci.length > 0) {
+            // 3. Napunimo naš izvozni niz dressesDataBase
+            dressesDataBase.push(...podaci); 
+            
+            // 4. Sada sortiramo podatke u varijablu 'dresses' koja je bila prazna na početku!
+            dresses = dressesDataBase.sort((a, b) => a.Name.localeCompare(b.Name));
 
-       
-        displayProducts();
+            // 5. Pokrećemo prikaz proizvoda
+            displayProducts();
+        }
 
     } catch (error) {
         console.error('Fehler beim Laden der Daten:', error);
         
-       
         let loadingElement = document.getElementById('render-loading-status');
         if (loadingElement) {
             loadingElement.innerHTML = `
@@ -393,7 +397,6 @@ async function fetchDresses() {
         }
     }
 }
-
 document.addEventListener('DOMContentLoaded', fetchDresses);
 
 /* displayProducts() */
