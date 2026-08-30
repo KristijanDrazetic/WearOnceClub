@@ -17,7 +17,7 @@ function displayProducts(){
 
   let productsHTML = ""
 
-  dressesDataBase.forEach((dress) => {
+  dresses.forEach((dress) => {
 
   productsHTML = productsHTML += `<div class="product__container">
          <div class="product__picture"><img  class="img__a" src= "${dress.Img}" referrerpolicy="no-referrer"></div>
