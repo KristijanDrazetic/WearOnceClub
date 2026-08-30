@@ -445,15 +445,40 @@ document.addEventListener('DOMContentLoaded', fetchDresses);
 let heroElement = document.querySelector(".hero");
 
 if (heroElement) {
-    heroElement.addEventListener("click", function(event) {
-        // Provjeravamo je li kliknuti element zapravo naš gumb s klasom .addBtn
+    console.log("Slušač klikova je uspješno povezan na element .hero");
+
+    heroElement.addEventListener("click", async function(event) {
+        
+        // Provjeravamo je li kliknuti element gumb za košaricu
         if (event.target && event.target.classList.contains("addBtn")) {
             
-            // Pokrećemo vašu funkciju i prosljeđujemo joj točan gumb koji je kliknut
-            addToCart(event.target);
+            console.log("Gumb 'Add to Cart' je prepoznat! Pokrećem logiku za:", event.target.title);
+            
+            // Onemogućujemo gumb privremeno da korisnik ne klika bjesomučno dok se čeka baza
+            event.target.disabled = true;
+            let originalText = event.target.innerText;
+            event.target.innerText = "Warten...";
+
+            try {
+                // Pokrećemo vašu funkciju i čekamo da ona završi svoje asinkrone zadatke
+                await addToCart(event.target);
+                console.log("Vaša funkcija addToCart() je uspješno završila izvršavanje!");
+
+            } catch (error) {
+                console.error("Došlo je do pogreške unutar addToCart funkcije:", error);
+                alert("Fehler beim Verbinden mit dem Server. Bitte versuchen Sie es erneut.");
+            } finally {
+                // Vraćamo gumb u prvobitno stanje nakon što obrada završi
+                if (event.target) {
+                    event.target.disabled = false;
+                    event.target.innerText = originalText;
+                }
+            }
             
         }
     });
+} else {
+    console.error("Kritična pogreška: Element .hero nije pronađen u HTML-u u trenutku pokretanja ove skripte!");
 }
 
 
