@@ -5,7 +5,7 @@ import {addQuantityDirectlyMultipleItems} from './main.js'
 import {getitemAvailable} from './main.js'
 import { getitemPrice } from './main.js';
 export let dressesDataBase = []
-let dresses = dressesDataBase.sort((a, b) => a.Name.localeCompare(b.Name))
+/* let dresses = dressesDataBase.sort((a, b) => a.Name.localeCompare(b.Name)) */
 let productsHTML = ""
 let orderSum = localStorage.getItem("cartSum")
 let cartQuantityDisplay = document.getElementById("cartQuantity")
@@ -57,7 +57,7 @@ function displayProducts(){
 
 
 
-function sortFunction() {
+/* function sortFunction() {
   
   let x = sortDresses.value;
 
@@ -87,7 +87,7 @@ function sortFunction() {
 
 if (sortDresses) {
    sortDresses.addEventListener("change", sortFunction);
-}
+} */
 
 function preventDoubleClicks(){
 
