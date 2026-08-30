@@ -4,7 +4,7 @@ import {addQuantityDirectly} from './main.js'
 import {addQuantityDirectlyMultipleItems} from './main.js'
 import {getitemAvailable} from './main.js'
 import { getitemPrice } from './main.js';
-export let dressesDataBase = await getDataFromDatabase()
+export let dressesDataBase = []
 let dresses = dressesDataBase.sort((a, b) => a.Name.localeCompare(b.Name))
 let productsHTML = ""
 let orderSum = localStorage.getItem("cartSum")
@@ -351,10 +351,11 @@ let isAtLeastOneDressInCart = cartItems.some(item => item.Name === `${btn.title}
 
 
 
+
 async function fetchDresses() {
     let heroElement = document.querySelector(".hero");
 
-  
+    
     if (heroElement) {
         heroElement.innerHTML = `
             <div id="render-loading-status" class="loading-box">
@@ -370,22 +371,18 @@ async function fetchDresses() {
 
     try {
         
-        const response = await fetch('https://wearonceclub-1.onrender.com');
+        const podaci = await getDataFromDatabase();
         
-        if (!response.ok) {
-            throw new Error('Netzwerkantwort war nicht ok');
-        }
+       
+        dressesDataBase = podaci;
 
-        
-        dressesDataBase = await response.json();
-        
        
         displayProducts();
 
     } catch (error) {
         console.error('Fehler beim Laden der Daten:', error);
         
-        
+       
         let loadingElement = document.getElementById('render-loading-status');
         if (loadingElement) {
             loadingElement.innerHTML = `
