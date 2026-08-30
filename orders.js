@@ -245,7 +245,13 @@ export function addToCart(){
 
 
 
+function subtractSumFromCart(dressPrice, quantity){
 
+  let cartSum = localStorage.getItem("cartSum")
+  localStorage.setItem("cartSum", +cartSum - dressPrice * quantity)
+  displaySumInCart()
+ 
+}
 
 
 
@@ -381,7 +387,7 @@ async function fetchDresses() {
         }
 
     } catch (error) {
-        console.error('Fehler beim Laden der Daten:', error);
+        console.error('Error loading data:', error);
         
         let loadingElement = document.getElementById('render-loading-status');
         if (loadingElement) {
