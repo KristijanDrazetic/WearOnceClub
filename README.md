@@ -31,7 +31,7 @@ To run this project locally on your machine follow these steps:
    - Navigate to the "backend/" folder.
    - Create a new file named ".env" and inside add the following configuration:
 
-     MONGODB_URI="mongodb+srv://<username>:<password>@cluster0.mu3zs9v.mongodb.net/inventory"
+     MONGODB_URI= "mongodb+srv://<username>:<password>@cluster0.mu3zs9v.mongodb.net/inventory"
      
      PORT=3000
 
