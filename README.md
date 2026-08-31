@@ -35,7 +35,7 @@ To run this project locally on your machine follow these steps:
      
      PORT=3000
 
-     *Note: Replace "<username>" and "<password>" with your actual MongoDB credentials.*
+     *Note: Replace "username" and "password" with your actual MongoDB credentials.*
 
      ***Database Reference Example
      To seed your local database or MongoDB Atlas cluster, use the following structure inside the "inventory" database and "dresses" collection:
