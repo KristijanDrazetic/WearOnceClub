@@ -18,3 +18,21 @@ Technologies Used:
   - Frontend: JavaScript (ES6+), HTML5, CSS3
   - APIs & Tools: LocalStorage API, Formspree
   - Hosting: Render (Backend), GitHub Pages (Frontend)
+
+
+To run this project locally on your machine follow these steps:
+  1. Download the project:
+   - Click on the green "Code" button at the top right of this repository.
+   - Select "Download ZIP" from the dropdown menu.
+   - Extract the downloaded ".zip" file on your computer.
+
+  2. Set up Environment Variables:
+   - Open the project in Visual Studio Code.
+   - Navigate to the "backend/" folder.
+   - Create a new file named ".env" and inside add the following configuration:
+
+     MONGODB_URI="mongodb+srv://<username>:<password>@cluster0.mu3zs9v.mongodb.net/inventory"
+     PORT=3000
+
+     *Note: Replace "<username>" and "<password>" with your actual MongoDB credentials.*
+    
