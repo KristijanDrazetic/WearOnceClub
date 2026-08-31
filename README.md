@@ -50,6 +50,16 @@ To run this project locally on your machine follow these steps:
       "Size_index": 3,
       "Occasion": "formal",
       "Available": 7
-}
+      }
 
+  3. Configure Frontend for Localhost:
+    - Open the "main.js" file in your frontend directory.
+    - Change the production API URL to your local server URL by replacing:
+     
+     const SERVER_URL = "https://onrender.com";
+    
+     with:
+     
+     const SERVER_URL = "http://localhost:3000/api/data/find";
+     
     
