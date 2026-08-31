@@ -53,8 +53,8 @@ To run this project locally on your machine follow these steps:
       }
 
   3. Configure Frontend for Localhost:
-    - Open the "main.js" file in your frontend directory.
-    - Change the production API URL to your local server URL by replacing:
+   - Open the "main.js" file in your frontend directory.
+   - Change the production API URL to your local server URL by replacing:
      
      const SERVER_URL = "https://onrender.com";
     
@@ -67,12 +67,12 @@ To run this project locally on your machine follow these steps:
      const SERVER_URL = "http://localhost:3000/api/data/update";
 
   4. Initialize and Start Backend Server:
-    - Open the integrated terminal in VS Code.
-    - Navigate into the backend directory:
+   - Open the integrated terminal in VS Code.
+   - Navigate into the backend directory:
      
      cd backend
      
-    - Initialize the Node.js project, install the dependencies, and start the server by running:
+   - Initialize the Node.js project, install the dependencies, and start the server by running:
      
      npm init -y
      
@@ -81,7 +81,7 @@ To run this project locally on your machine follow these steps:
      node server.js
 
   5. Launch the Frontend Application:
-    - In VS Code, navigate back to your frontend files.
-    - Right-click on the "index.html" file and select "Open with Live Server" (or click the "Go Live" button in the bottom status bar) to launch the web application with hot-reloading.
+   - In VS Code, navigate back to your frontend files.
+   - Right-click on the "index.html" file and select "Open with Live Server" (or click the "Go Live" button in the bottom status bar) to launch the web application with hot-reloading.
      
     
