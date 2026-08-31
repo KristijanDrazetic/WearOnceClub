@@ -32,7 +32,24 @@ To run this project locally on your machine follow these steps:
    - Create a new file named ".env" and inside add the following configuration:
 
      MONGODB_URI="mongodb+srv://<username>:<password>@cluster0.mu3zs9v.mongodb.net/inventory"
+     
      PORT=3000
 
      *Note: Replace "<username>" and "<password>" with your actual MongoDB credentials.*
+
+     ***Database Reference Example
+     To seed your local database or MongoDB Atlas cluster, use the following structure inside the "inventory" database and "dresses" collection:
+
+    {
+      "_id": { "\$oid": "6a455274a3468d1634955081" },
+      "Name": "Asta",
+      "Price": 50,
+      "Color": "red",
+      "Size": "M",
+      "Img": "https://imgur.com",
+      "Size_index": 3,
+      "Occasion": "formal",
+      "Available": 7
+}
+
     
