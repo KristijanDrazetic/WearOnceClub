@@ -68,7 +68,7 @@ To run this project locally on your machine follow these steps:
 
      
   4. Initialize and Start Backend Server:
-     - Open the integrated terminal in VS Code ).
+     - Open the integrated terminal in VS Code.
      - Navigate into the backend directory:
      
      cd backend
